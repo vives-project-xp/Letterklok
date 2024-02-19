@@ -1,0 +1,5 @@
+led kleuren naar boven met elke knop
+alleen  rgb 
+2 keer buitenste naar wit en omgekeerd 
+twee buitenste 1 keer en lang brightness naar boven 
+twee buitenste lang 
