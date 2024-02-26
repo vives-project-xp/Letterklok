@@ -15,6 +15,7 @@ NTPClient timeClient(ntpUDP);
 // LED strip details
 #define PIN 3
 #define NUM_LEDS 31
+
 uint8_t brightness = 255;
 uint8_t redValue = 255;
 uint8_t greenValue = 0;
@@ -69,6 +70,9 @@ void loop() {
     prevTimeSec = timeClient.getSeconds();
     Serial.print("Current time: ");
     Serial.println(timeClient.getFormattedTime());
+    // Serial.println(digitalRead(redInput));
+    // Serial.println(digitalRead(greenInput)); 
+    // Serial.println(digitalRead(blueInput));
   }
   // dispaly the time on the led strip
   // We want the time to be displayed in binary in the following format
@@ -139,24 +143,62 @@ void loop() {
   // Test all LEDs with the current RGB values
   //testAllLEDs();
 
-  // Increase the RGB values while the corresponding button is held down
-  if (digitalRead(redInput) == LOW && digitalRead(greenInput) == LOW ) {
-    brightness++ ;
+  // Check if any button is pressed and released then it will increase the brightness of the led strip or the RGB color of the led strip
+  // so when you just press it and relase it goes up by 1 (rising edge) and when you hold it it goes up by 1 every 10ms (on press)
+
+
+
+  static bool prevRedButtonState = HIGH;
+  static bool prevGreenButtonState = HIGH;
+  static bool prevBlueButtonState = HIGH;
+
+  static unsigned long buttonPressStartTime = 0;
+  const unsigned long holdThreshold = 1000; // 1 second hold threshold
+  // Increase the brightness on the rising edge if you press the red and green buttons at the same time
+  if (digitalRead(redInput) == LOW && digitalRead(greenInput)== LOW) {
+    brightness++;
     strip.setBrightness(brightness);
     displayBrightness();
   }
+
+  // Check if the button is held for more than the hold threshold
   else if (digitalRead(redInput) == LOW) {
-    redValue++;
-    displayButtonValues();
+    if (prevRedButtonState == HIGH) { // Button was just pressed
+      buttonPressStartTime = millis();
+      redValue++;
+      displayButtonValues();
+    }
+    if (millis() - buttonPressStartTime > holdThreshold) {
+      redValue++;
+      displayButtonValues();
+    }
   }
   else if (digitalRead(greenInput) == LOW) {
-    greenValue++;
-    displayButtonValues();
-  }
+    if (prevGreenButtonState == HIGH) { // Button was just pressed
+      buttonPressStartTime = millis();
+      greenValue++;
+      displayButtonValues();
+    }
+    if (millis() - buttonPressStartTime > holdThreshold) {
+      greenValue++;
+      displayButtonValues();
+    }
+  } 
   else if (digitalRead(blueInput) == LOW) {
-    blueValue++;
-    displayButtonValues();
-  }
+    if (prevBlueButtonState == HIGH) { // Button was just pressed
+      buttonPressStartTime = millis();
+      blueValue++;
+      displayButtonValues();
+    }
+    if (millis() - buttonPressStartTime > holdThreshold) {
+      blueValue++;
+      displayButtonValues();
+    }
+  } 
+
+  prevBlueButtonState = digitalRead(blueInput);
+  prevRedButtonState = digitalRead(redInput);
+  prevGreenButtonState = digitalRead(greenInput);
 
   // Delay for 100 milliseconds to debounce the buttons
   delay(0);
