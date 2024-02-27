@@ -29,7 +29,7 @@ const int blueInput = 2;
 // Previous time in seconds
 int prevTimeSec = 0;
 
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRBW + NEO_KHZ800);
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRBW + NEO_KHZ400);
 
 // Function prototypes
 void testAllLEDs();
@@ -141,7 +141,7 @@ void loop() {
 
 
   // Test all LEDs with the current RGB values
-  //testAllLEDs();
+  //atestAllLEDs();
 
   // Check if any button is pressed and released then it will increase the brightness of the led strip or the RGB color of the led strip
   // so when you just press it and relase it goes up by 1 (rising edge) and when you hold it it goes up by 1 every 10ms (on press)
