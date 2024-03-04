@@ -44,8 +44,8 @@ aan de plaat. Ook zijn ze knipbaar op elke LED, wat ons veel flexibiliteit biedt
 
 
 Ingangsspanning: 5V <br>
-Max. vermogen per LED: 60mA
-Max. vermogen per meter: 1.8A / 9W
+Max. vermogen per LED: 60mA <br>
+Max. vermogen per meter: 1.8A / 9W <br>
 WS2813 chip<br>
 30 LEDs per meter<br>
 
