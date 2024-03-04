@@ -13,7 +13,7 @@ We houden in gedacht dat onze leds nooit allemaal op hetzelfde moment zullen opl
 
 
 # 2: Controller
-<img src = "controller.webp" height = 300></img>
+<img src = "Controller.png" height = 300></img>
 
 <p>Om onze leds aan te sturen, maken we gebruik van de ESP32-C3, een controller waarmee we reeds vertrouwd zijn. 
 
@@ -21,7 +21,7 @@ Dit toestel werkt op een spanning van 3.3V, heeft een USB-interface en 22 GPIO-p
 
 
 # 3: Level Shifter
-<img src = "level_shifter.webp" height = 300></img>
+<img src = "level_Schifter.png" height = 300></img>
 
 Omdat de spanning van onze controller (3.3V) verschilt met de spanning waarop onze LEDs werken (5V), hebben we level shifters nodig om de spanningen juist om te zetten.
 
