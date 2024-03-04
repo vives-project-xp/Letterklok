@@ -21,11 +21,11 @@ Dit toestel werkt op een spanning van 3.3V, heeft een USB-interface en 22 GPIO-p
 
 
 # 3: Level Shifter
-<img src = "level_Schifter.png" height = 300></img>
+<img src = "level_shifter.jpg" height = 300></img>
 
-Omdat de spanning van onze controller (3.3V) verschilt met de spanning waarop onze LEDs werken (5V), hebben we level shifters nodig om de spanningen juist om te zetten.
+Omdat de spanning van onze controller (3.3V) verschilt met de spanning waarop onze LEDs werken (5V), hebben we level shifters nodig om het digitaal signaal van de controller juist om te zetten.
 
-Deze level shifter kan omzettingen doen tussen:<br>
+Deze level shifter werkt bidirectioneel en kan omzettingen doen tussen:<br>
 *1.8V<br>
 *2.8V<br>
 *3.3V<br>
@@ -33,7 +33,17 @@ Deze level shifter kan omzettingen doen tussen:<br>
 
 
 
-# 4: Ledstrip
+# 4: Spanningsomvormer
+<img src = "voltage_regulator.webp" height = 300></img>
+
+Opdat we onze microcontroller veilig kunnen voeden, moeten we eerst de 5V ingangsspanning veilig omzetten naar een 3.3V spanning waarop de ESP werkt. Deze component regelt de spanning tot een vaste 3.3Vout en 800mA.
+
+Input: DC 4.5 - 7V <br>
+Output: 3.3V, 800mA 
+
+
+
+# 5: Ledstrip
 <img src="ledstrip.jpg" alt="ledstrip gekozen voor ons project" height="300">
 
 De box waarmee we werken zal een afmeting hebben van 850x850mm, dus om zeker te zijn
