@@ -1,5 +1,13 @@
 # Project: Letterklok 
 
+## SPRINTS
+- Sprint 1: 5/02 - 03/03
+- Sprint 2: 04/03 - 24/03
+- Sprint 3: 25/03 - 05/05
+- Sprint 4: 06/06 - 19/05
+- Presentatie: 22/05
+
+
 ## Description
 The Character Clock is a unique timekeeping device that presents the current time using alphanumeric characters or symbols instead of traditional numerical or analog representations. It offers a creative and eye-catching way to display the time, adding both functionality and aesthetic appeal to any space.
 
@@ -37,7 +45,7 @@ To build and customize the Character Clock:
 
 ![Architecture file](/Architectuur/Foto's/Input-Functie-Output.png)
 ![Architecture file](/Architectuur/Foto's/Requirements.png)
-![Architecture file](/Architectuur/Foto's/Architecture_2.png)
+![Architecture file](/Architectuur/Foto's/Architecture.png)
 
 
 
