@@ -2,9 +2,21 @@
 
 ## SPRINTS
 - Sprint 1: 5/02 - 03/03 ✅
+    - brainstormen
+    - componenten toevoegen aan bestellijst
+    - architectuur bestand maken
+    - kleine testen (keuze componenten verklaren)
 - Sprint 2: 04/03 - 24/03
+    - checklist testen prototypes
+    - bouwen prototype
+    - architectuur bestand updaten
 - Sprint 3: 25/03 - 05/05
+    - werken naar finaal product
+    - elk onderdeel testen op betrouwbaarheid
+    - checklist maken voor laaste sprint (debuggen en fine tuning)
 - Sprint 4: 06/06 - 19/05
+    - checklist afgaan
+    - testresultaten noteren en optimaliseren
 - Presentatie: 22/05
 
 
