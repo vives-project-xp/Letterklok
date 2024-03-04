@@ -21,7 +21,7 @@ Dit toestel werkt op een spanning van 3.3V, heeft een USB-interface en 22 GPIO-p
 
 
 # 3: Level Shifter
-<img src = "level_shifter.webp" height = 300></img>
+<img src = "level_Schifter.png" height = 300></img>
 
 Omdat de spanning van onze controller (3.3V) verschilt met de spanning waarop onze LEDs werken (5V), hebben we level shifters nodig om de spanningen juist om te zetten.
 
