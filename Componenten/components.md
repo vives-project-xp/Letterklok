@@ -34,4 +34,18 @@ Deze level shifter kan omzettingen doen tussen:<br>
 
 
 # 4: Ledstrip
-<img src = "ledstrip.jpg" height = 300></img>
+<img src="ledstrip.jpg" alt="ledstrip gekozen voor ons project" height="300">
+
+De box waarmee we werken zal een afmeting hebben van 850x850mm, dus om zeker te zijn
+dat we genoeg LEDS hebben, inclusief voor testen, kiezen we voor 2x 5 meter ledstrips.
+
+Deze ledstrips zijn voorzien van een tape op de achterkant, waardoor we ze makkelijk kunnen bevestigen
+aan de plaat. Ook zijn ze knipbaar op elke LED, wat ons veel flexibiliteit biedt. Per meter zijn er 30 LEDS, waardoor we in totaal beschikken over 300 LEDS.
+
+
+Ingangsspanning: 5V <br>
+Max. vermogen per LED: 60mA
+Max. vermogen per meter: 1.8A / 9W
+WS2813 chip<br>
+30 LEDs per meter<br>
+
