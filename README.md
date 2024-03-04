@@ -1,11 +1,11 @@
 # Project: Letterklok 
 
 ## SPRINTS
-Sprint 1: 5/02 - 03/03
-Sprint 2: 04/03 - 24/03
-Sprint 3: 25/03 - 05/05
-Sprint 4: 06/06 - 19/05
-Presentatie: 22/05
+- Sprint 1: 5/02 - 03/03
+- Sprint 2: 04/03 - 24/03
+- Sprint 3: 25/03 - 05/05
+- Sprint 4: 06/06 - 19/05
+- Presentatie: 22/05
 
 
 ## Description
