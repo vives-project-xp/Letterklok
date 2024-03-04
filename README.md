@@ -37,7 +37,7 @@ To build and customize the Character Clock:
 
 ![Architecture file](/Architectuur/Foto's/Input-Functie-Output.png)
 ![Architecture file](/Architectuur/Foto's/Requirements.png)
-![Architecture file](/Architectuur/Foto's/Architecture_2.png)
+![Architecture file](/Architectuur/Foto's/Architecture.png)
 
 
 
