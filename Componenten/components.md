@@ -13,7 +13,7 @@ We houden in gedacht dat onze leds nooit allemaal op hetzelfde moment zullen opl
 
 
 # 2: Controller
-<img src = "controller.webp" height = 300></img>
+<img src = "Controller.png" height = 300></img>
 
 <p>Om onze leds aan te sturen, maken we gebruik van de ESP32-C3, een controller waarmee we reeds vertrouwd zijn. 
 
