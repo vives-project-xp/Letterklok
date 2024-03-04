@@ -29,7 +29,7 @@ const int blueInput = 2;
 // Previous time in seconds
 int prevTimeSec = 0;
 
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRBW + NEO_KHZ400);
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRBW + NEO_KHZ800);
 
 // Function prototypes
 void testAllLEDs();
