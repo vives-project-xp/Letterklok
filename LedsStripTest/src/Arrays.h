@@ -1,29 +1,29 @@
 
 // Arrays for the minutes
 //                          V               I               J            F              N               A
-int five[24]          = {30,31,32,33,  34,35,36,37,    38,39,40,41,   42,43,44,45,  58,59,60,61,  62,63,64,65};
+int fiveMinutes[24]          = {30,31,32,33,  34,35,36,37,    38,39,40,41,   42,43,44,45,  58,59,60,61,  62,63,64,65};
 //                          T               I               E              N            O               V               E               R 
-int ten[32]           = {46,47,48,49,  50,51,52,53,    54,55,56,57,   58,59,60,61,    90,91,92,93,  94,95,96,97,  98,99,100,101,  102,103,104,105};
+int tenMinutes[32]           = {46,47,48,49,  50,51,52,53,    54,55,56,57,   58,59,60,61,    90,91,92,93,  94,95,96,97,  98,99,100,101,  102,103,104,105};
 //                          K               W               A                       R                T                  O               V                   E               R
-int fifteen[36]       = {114,115,116,117, 118,119,120,121,  122,123,124,125,  126,127,128,129,  130,131,132,133,  162,163,164,165,  166,167,168,169,  170,171,172,173,  174,175,176,177};
+int fifteenMinutes[36]       = {114,115,116,117, 118,119,120,121,  122,123,124,125,  126,127,128,129,  130,131,132,133,  162,163,164,165,  166,167,168,169,  170,171,172,173,  174,175,176,177};
 //                          T               I               E              N            V               O           O               R               H                   A                   L                       F 
-int twenty[48]        = {46,47,48,49,  50,51,52,53,    54,55,56,57,   58,59,60,61,    74,75,76,77,  78,79,80,81,  82,83,84,85,  86,87,88,89,  134,135,136,137,    138,139,140,141,    142,143,144,145,    146,147,148,149};
+int twentyMinutes[48]        = {46,47,48,49,  50,51,52,53,    54,55,56,57,   58,59,60,61,    74,75,76,77,  78,79,80,81,  82,83,84,85,  86,87,88,89,  134,135,136,137,    138,139,140,141,    142,143,144,145,    146,147,148,149};
 //                          V               I               J                   F            V               O           O               R               H                   A                   L                       F 
-int twentyFive[48]    = {30,31,32,33,     34,35,36,37,     38,39,40,41,     42,43,44,45,  74,75,76,77,  78,79,80,81,  82,83,84,85,  86,87,88,89,  134,135,136,137,    138,139,140,141,    142,143,144,145,    146,147,148,149};
+int twentyFiveMinutes[48]    = {30,31,32,33,     34,35,36,37,     38,39,40,41,     42,43,44,45,  74,75,76,77,  78,79,80,81,  82,83,84,85,  86,87,88,89,  134,135,136,137,    138,139,140,141,    142,143,144,145,    146,147,148,149};
 //                          H                   A                   L                   F
-int thirty[16]        = {134,135,136,137,    138,139,140,141,    142,143,144,145,    146,147,148,149};
+int thirtyMinutes[16]        = {134,135,136,137,    138,139,140,141,    142,143,144,145,    146,147,148,149};
 //                          V               I               J                   F           N               A               H                   A                   L                   F
-int thirtyFive[40]    = {30,31,32,33,     34,35,36,37,     38,39,40,41,     42,43,44,45,  58,59,60,61,  62,63,64,65,  134,135,136,137,    138,139,140,141,    142,143,144,145,    146,147,148,149};
+int thirtyFiveMinutes[40]    = {30,31,32,33,     34,35,36,37,     38,39,40,41,     42,43,44,45,  58,59,60,61,  62,63,64,65,  134,135,136,137,    138,139,140,141,    142,143,144,145,    146,147,148,149};
 //                          T               I               E           N               O               V               E           R                   H                   A                   L                   F 
-int forty[48]         = {46,47,48,49,  50,51,52,53,    54,55,56,57,   58,59,60,61,    90,91,92,93,  94,95,96,97,  98,99,100,101,  102,103,104,105, 134,135,136,137,    138,139,140,141,    142,143,144,145,    146,147,148,149};
+int fortyMinutes[48]         = {46,47,48,49,  50,51,52,53,    54,55,56,57,   58,59,60,61,    90,91,92,93,  94,95,96,97,  98,99,100,101,  102,103,104,105, 134,135,136,137,    138,139,140,141,    142,143,144,145,    146,147,148,149};
 //                          K               W               A                    R                   T                  V               O                   O                   R
-int fortyFive[36]     = {114,115,116,117, 118,119,120,121,  122,123,124,125,  126,127,128,129,  130,131,132,133,  178,179,180,181,  182,183,184,185,  186,187,188,189,  190,191,192,193};
+int fortyFiveMinutes[36]     = {114,115,116,117, 118,119,120,121,  122,123,124,125,  126,127,128,129,  130,131,132,133,  178,179,180,181,  182,183,184,185,  186,187,188,189,  190,191,192,193};
 //                          T               I               E           N               V                   O               O                   R
-int fifty[32]         = {46,47,48,49,  50,51,52,53,    54,55,56,57,   58,59,60,61,  178,179,180,181,  182,183,184,185,  186,187,188,189,  190,191,192,193};
+int fiftyMinutes[32]         = {46,47,48,49,  50,51,52,53,    54,55,56,57,   58,59,60,61,  178,179,180,181,  182,183,184,185,  186,187,188,189,  190,191,192,193};
 //                          V               I               J                   F               V               O                   O               R
-int fiftyFive[32]     = {30,31,32,33,     34,35,36,37,     38,39,40,41,     42,43,44,45,  178,179,180,181,  182,183,184,185,  186,187,188,189,  190,191,192,193};
+int fiftyFiveMinutes[32]     = {30,31,32,33,     34,35,36,37,     38,39,40,41,     42,43,44,45,  178,179,180,181,  182,183,184,185,  186,187,188,189,  190,191,192,193};
 //                          U               U                       R
-int sixty[12]         = {430,431,432,433,  434,435,436,437,   438,439,440,441};
+int sixtyMinutes[12]         = {430,431,432,433,  434,435,436,437,   438,439,440,441};
 
 
 // Arrays for the hours
@@ -52,3 +52,298 @@ int eleven[32]        = {2,3,4,5,    6,7,8,9,    10,11,12,13,    18,19,20,21,   
 //                      H           E               T               I               S               T                   W                   A                   A                   L                   F
 int twelve[44]        = {2,3,4,5,    6,7,8,9,    10,11,12,13,    18,19,20,21,    22,23,24,25,   398,399,400,401,  402,403,404,405,    406,407,408,409,    410,411,412,413,    414,415,416,417,   418,419,420,421};
 
+//outputArray
+int outputArray[600] = {0};
+
+
+//function for building the output array
+void buildOutputArray(int hours, int minutes)
+
+{
+
+//clear the output array
+  for(int i ; i <= 600; i++)
+  {
+    outputArray[i] = 0;
+  }
+
+//convert hours to output array
+if (minutes < 20 )
+{
+    if (hours == 1)
+    {
+        for(int i : one)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (hours == 2)
+    {
+        for(int i : two)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (hours == 3)
+    {
+        for(int i : three)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (hours == 4)
+    {
+        for(int i : four)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (hours == 5)
+    {
+        for(int i : five)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (hours == 6)
+    {
+        for(int i : six)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (hours == 7)
+    {
+        for(int i : seven)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (hours == 8)
+    {
+        for(int i : eight)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (hours == 9)
+    {
+        for(int i : nine)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (hours == 10)
+    {
+        for(int i : ten)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (hours == 11)
+    {
+        for(int i : eleven)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (hours == 12)
+    {
+        for(int i : twelve)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    
+}
+else if (minutes >= 20)
+{
+    if (hours == 1)
+    {
+        for(int i : two)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (hours == 2)
+    {
+        for(int i : three)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (hours == 3)
+    {
+        for(int i : four)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (hours == 4)
+    {
+        for(int i : five)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (hours == 5)
+    {
+        for(int i : six)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (hours == 6)
+    {
+        for(int i : seven)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (hours == 7)
+    {
+        for(int i : eight)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (hours == 8)
+    {
+        for(int i : nine)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (hours == 9)
+    {
+        for(int i : ten)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (hours == 10)
+    {
+        for(int i : eleven)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (hours == 11)
+    {
+        for(int i : twelve)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (hours == 12)
+    {
+        for(int i : one)
+        {
+        outputArray[i] = 1;
+        }
+    }
+}
+    
+// mintues to output array
+  if (minutes == 5)
+  {
+    for(int i : fiveMinutes)
+    {
+      outputArray[i] = 1;
+    }
+  }
+    else if (minutes == 10)
+    {
+        for(int i : tenMinutes)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (minutes == 15)
+    {
+        for(int i : fifteenMinutes)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (minutes == 20)
+    {
+        for(int i : twentyMinutes)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (minutes == 25)
+    {
+        for(int i : twentyFiveMinutes)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (minutes == 30)
+    {
+        for(int i : thirtyMinutes)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (minutes == 35)
+    {
+        for(int i : thirtyFiveMinutes)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (minutes == 40)
+    {
+        for(int i : fortyMinutes)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (minutes == 45)
+    {
+        for(int i : fortyFiveMinutes)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (minutes == 50)
+    {
+        for(int i : fiftyMinutes)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (minutes == 55)
+    {
+        for(int i : fiftyFiveMinutes)
+        {
+        outputArray[i] = 1;
+        }
+    }
+    else if (minutes == 0)
+    {
+        for(int i : sixtyMinutes)
+        {
+        outputArray[i] = 1;
+        }
+    }
+}
+
+
+
+void displayOutputArray()
+{
+    for(int i = 0; i <= (sizeof(outputArray)/sizeof(int)); i++)
+    {
+        if (outputArray[i] == 1)
+        {
+            strip.setPixelColor(i, strip.Color(redValue, blueValue, greenValue , 0));
+        }
+        else if(outputArray[i] == 0)
+        {
+            strip.setPixelColor(i, strip.Color(0, 0, 0, 0));
+        }
+    }
+}
