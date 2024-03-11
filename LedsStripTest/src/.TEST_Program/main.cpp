@@ -17,10 +17,10 @@ NTPClient timeClient(ntpUDP);
 #define NUM_LEDS 300
 
 uint8_t brightness = 255;
-uint8_t redValue = 255;
+uint8_t redValue = 0;
 uint8_t greenValue = 0;
 uint8_t blueValue = 0;
-uint8_t whiteValue = 0;
+uint8_t whiteValue = 255;
 
 // Button input pins
 const int redInput = 4;
