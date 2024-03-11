@@ -3,6 +3,7 @@
 #include <WiFi.h>
 #include <NTPClient.h>
 #include <WiFiUdp.h>
+#include <Arrays.h>
 
 // WiFi credentials
 const char* ssid = "devbit";
@@ -14,7 +15,10 @@ NTPClient timeClient(ntpUDP);
 
 // LED strip details
 #define PIN 3
-#define NUM_LEDS 300
+#define NUM_LEDS à
+
+int outputArray[NUM_LEDS] = {0};
+
 
 uint8_t brightness = 255;
 uint8_t redValue = 255;
@@ -26,6 +30,7 @@ uint8_t whiteValue = 0;
 const int redInput = 4;
 const int greenInput = 5;
 const int blueInput = 2;
+bool flag = 0;
 
 // Previous time in seconds
 int prevTimeSec = 0;
@@ -37,6 +42,8 @@ void testAllLEDs();
 void displayButtonValues();
 void displayBrightness();
 void color_brightnessManipulation();
+void buildOutputArray(int hours, int minutes);
+void displayOutputArray();
 
 void setup() {
   Serial.begin(9600); // Initialize the serial port
@@ -80,13 +87,29 @@ void loop() {
   int hours = timeClient.getHours();
   int minutes = timeClient.getMinutes();
 
+  //every 5 minutes
+  if (minutes % 5 == 0)
+  {
+    if (flag == 0)
+    {
+      flag = 1;
+      strip.clear();
 
- 
+    }
 
-
-  // Test all LEDs with the current RGB values
-  testAllLEDs();
+    // build the output array
+    buildOutputArray(hours, minutes);
+    // display the output array
+    displayOutputArray();
+    // change color and brightness
+  }
+  else {
+    flag = 0;
+  }
   color_brightnessManipulation();
+  strip.show();
+  // testAllLEDs();
+
 }
 
 void color_brightnessManipulation(){
@@ -107,8 +130,6 @@ void color_brightnessManipulation(){
   }
 
   else if (millis() - dubblePressReleaseTime > 200) {
-
-
     // Check if the button is held for more than the hold threshold
       if (prevRedButtonState == LOW && digitalRead(redInput) == HIGH) { // Button was just pressed
         redValue++;
@@ -160,6 +181,220 @@ void color_brightnessManipulation(){
   // Delay for 100 milliseconds to debounce the buttons
   delay(10);
 }
+
+//function for building the output array
+void buildOutputArray(int hours, int minutes) {
+  // clear the output array
+  for(int i = 0; i <= 600; i++) {
+    outputArray[i] = 0;
+  }
+  if (hours > 12)
+  {
+    hours = hours - 12;
+  } 
+if (minutes >= 20)
+  {
+    hours++;
+  }
+  // convert hours to output array
+      if (hours == 1)
+      {
+          for(int i : one)
+          {
+          outputArray[i] = 1;
+          }
+      }
+      else if (hours == 2)
+      {
+          for(int i : two)
+          {
+          outputArray[i] = 1;
+          }
+      }
+      else if (hours == 3)
+      {
+          for(int i : three)
+          {
+          outputArray[i] = 1;
+          }
+      }
+      else if (hours == 4)
+      {
+          for(int i : four)
+          {
+          outputArray[i] = 1;
+          }
+      }
+      else if (hours == 5)
+      {
+          for(int i : five)
+          {
+          outputArray[i] = 1;
+          }
+      }
+      else if (hours == 6)
+      {
+          for(int i : six)
+          {
+          outputArray[i] = 1;
+          }
+      }
+      else if (hours == 7)
+      {
+          for(int i : seven)
+          {
+          outputArray[i] = 1;
+          }
+      }
+      else if (hours == 8)
+      {
+          for(int i : eight)
+          {
+          outputArray[i] = 1;
+          }
+      }
+      else if (hours == 9)
+      {
+          for(int i : nine)
+          {
+          outputArray[i] = 1;
+          }
+      }
+      else if (hours == 10)
+      {
+          for(int i : ten)
+          {
+          outputArray[i] = 1;
+          }
+      }
+      else if (hours == 11)
+      {
+          for(int i : eleven)
+          {
+          outputArray[i] = 1;
+          }
+      }
+      else if (hours == 12)
+      {
+          for(int i : twelve)
+          {
+          outputArray[i] = 1;
+          }
+      }
+
+      
+  // mintues to output array
+    if (minutes == 5)
+    {
+      for(int i : fiveMinutes)
+      {
+        outputArray[i] = 1;
+      }
+    }
+      else if (minutes == 10)
+      {
+          for(int i : tenMinutes)
+          {
+          outputArray[i] = 1;
+          }
+      }
+      else if (minutes == 15)
+      {
+          for(int i : fifteenMinutes)
+          {
+          outputArray[i] = 1;
+          }
+      }
+      else if (minutes == 20)
+      {
+          for(int i : twentyMinutes)
+          {
+          outputArray[i] = 1;
+          }
+      }
+      else if (minutes == 25)
+      {
+          for(int i : twentyFiveMinutes)
+          {
+          outputArray[i] = 1;
+          }
+      }
+      else if (minutes == 30)
+      {
+          for(int i : thirtyMinutes)
+          {
+          outputArray[i] = 1;
+          }
+      }
+      else if (minutes == 35)
+      {
+          for(int i : thirtyFiveMinutes)
+          {
+          outputArray[i] = 1;
+          }
+      }
+      else if (minutes == 40)
+      {
+          for(int i : fortyMinutes)
+          {
+          outputArray[i] = 1;
+          }
+      }
+      else if (minutes == 45)
+      {
+          for(int i : fortyFiveMinutes)
+          {
+          outputArray[i] = 1;
+          }
+      }
+      else if (minutes == 50)
+      {
+          for(int i : fiftyMinutes)
+          {
+          outputArray[i] = 1;
+          }
+      }
+      else if (minutes == 55)
+      {
+          for(int i : fiftyFiveMinutes)
+          {
+          outputArray[i] = 1;
+          }
+      }
+      else if (minutes == 0)
+      {
+          for(int i : sixtyMinutes)
+          {
+          outputArray[i] = 1;
+          }
+      }
+}
+
+void displayOutputArray()
+{
+  Serial.println("Displaying output array:");
+    for(int i = 0; i <= (sizeof(outputArray)/sizeof(int)); i++)
+    {
+        if (outputArray[i] == 1)
+        {
+            strip.setPixelColor(i, strip.Color(redValue, blueValue, greenValue , 0));
+        }
+        else if(outputArray[i] == 0)
+        {
+            strip.setPixelColor(i, strip.Color(0, 0, 0, 0));
+        }
+      if ((i-2) % 44 == 0)
+      {
+        Serial.println();
+      }
+      if ((i-2) % 4 == 0)
+      {
+        Serial.print(" ");
+      }
+      Serial.print(outputArray[i]);
+    }
+    Serial.println("\n ");
+    }
 
 
 void testAllLEDs() {
