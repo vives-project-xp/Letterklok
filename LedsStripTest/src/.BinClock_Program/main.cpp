@@ -14,10 +14,10 @@ NTPClient timeClient(ntpUDP);
 
 // LED strip details
 #define PIN 3
-#define NUM_LEDS 31
+#define NUM_LEDS 300
 
 uint8_t brightness = 255;
-uint8_t redValue = 255;
+uint8_t redValue = 0;
 uint8_t greenValue = 0;
 uint8_t blueValue = 0;
 uint8_t whiteValue = 0;
