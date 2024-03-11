@@ -5,7 +5,7 @@
 
 
 <h2>Requirements</h2>
-<img src = "Foto's/Requirements.png">
+<img src = "Foto's/Requirements.png">sui nikka
 
 <h2>Directe/indirecte functies</h2>
 
