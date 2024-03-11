@@ -14,7 +14,7 @@ NTPClient timeClient(ntpUDP);
 
 // LED strip details
 #define PIN 3
-#define NUM_LEDS 31
+#define NUM_LEDS 300
 
 uint8_t brightness = 255;
 uint8_t redValue = 255;
@@ -93,61 +93,15 @@ void loop() {
   int hoursUnits = hours % 10;
   int hoursTens = hours / 10;
 
-  // display the time on the led strip
-  for (int i = 0; i < 4; i++) {
-    if (secondsUnits & (1 << i)) {
-      strip.setPixelColor(i, strip.Color(redValue, greenValue, blueValue, 0));
-    } else {
-      strip.setPixelColor(i, strip.Color(0, 0, 0, 0));
-    }
-  }
-  for (int i = 5; i < 9; i++) {
-    if (secondsTens & (1 << (i - 5))) {
-      strip.setPixelColor(i, strip.Color(redValue, greenValue, blueValue, 0));
-    } else {
-      strip.setPixelColor(i, strip.Color(0, 0, 0, 0));
-    }
-  }
-  for (int i = 10; i < 14; i++) {
-    if (minutesUnits & (1 << (i - 10))) {
-      strip.setPixelColor(i, strip.Color(blueValue, redValue, greenValue, 0));
-    } else {
-      strip.setPixelColor(i, strip.Color(0, 0, 0, 0));
-    }
-  }
-  for (int i = 15; i < 19; i++) {
-    if (minutesTens & (1 << (i - 15))) {
-      strip.setPixelColor(i, strip.Color(blueValue, redValue, greenValue, 0));
-    } else {
-      strip.setPixelColor(i, strip.Color(0, 0, 0, 0));
-    }
-  }
-  for (int i = 20; i < 24; i++) {
-    if (hoursUnits & (1 << (i - 20))) {
-      strip.setPixelColor(i, strip.Color(greenValue, blueValue, redValue, 0));
-    } else {
-      strip.setPixelColor(i, strip.Color(0, 0, 0, 0));
-    }
-  }
-  for (int i = 25; i < 29; i++) {
-    if (hoursTens & (1 << (i - 25))) {
-      strip.setPixelColor(i, strip.Color(greenValue, blueValue, redValue, 0));
-    } else {
-      strip.setPixelColor(i, strip.Color(0, 0, 0, 0));
-    }
-  }
-  strip.show(); // Update all LEDs with the new colors
 
 
+
+  strip.show();
 
 
   // Test all LEDs with the current RGB values
-  testAllLEDs();
-
-  // Check if any button is pressed and released then it will increase the brightness of the led strip or the RGB color of the led strip
-  // so when you just press it and relase it goes up by 1 (rising edge) and when you hold it it goes up by 1 every 10ms (on press)
-
-
+  //atestAllLEDs();
+color_brightnessManipulation(redInput, greenInput, blueInput, brightness);
 
   static bool prevRedButtonState = HIGH;
   static bool prevGreenButtonState = HIGH;
@@ -218,6 +172,12 @@ void loop() {
   // Delay for 100 milliseconds to debounce the buttons
   delay(10);
 }
+
+void color_brightnessManipulation(int redInput, int greenInput, int blueInput, int brightness){
+    
+
+}
+
 
 void testAllLEDs() {
   // Loop through all LEDs and set them to different colors
