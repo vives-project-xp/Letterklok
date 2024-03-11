@@ -18,9 +18,9 @@ NTPClient timeClient(ntpUDP);
 
 uint8_t brightness = 255;
 uint8_t redValue = 0;
-uint8_t greenValue = 0;
+uint8_t greenValue = 255;
 uint8_t blueValue = 0;
-uint8_t whiteValue = 255;
+uint8_t whiteValue = 0;
 
 // Button input pins
 const int redInput = 4;
