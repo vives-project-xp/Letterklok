@@ -20,6 +20,7 @@ uint8_t brightness = 255;
 uint8_t redValue = 255;
 uint8_t greenValue = 0;
 uint8_t blueValue = 0;
+uint8_t whiteValue = 0;
 
 // Button input pins
 const int redInput = 4;
@@ -153,61 +154,75 @@ void loop() {
   static bool prevBlueButtonState = HIGH;
 
   static unsigned long buttonPressStartTime = 0;
+  static unsigned long dubblePressReleaseTime = 0;
   const unsigned long holdThreshold = 1000; // 1 second hold threshold
   // Increase the brightness on the rising edge if you press the red and green buttons at the same time
   if (digitalRead(redInput) == LOW && digitalRead(greenInput)== LOW) {
     brightness++;
     strip.setBrightness(brightness);
     displayBrightness();
+    dubblePressReleaseTime = millis();
   }
 
-  // Check if the button is held for more than the hold threshold
-  else if (digitalRead(redInput) == LOW) {
-    if (prevRedButtonState == HIGH) { // Button was just pressed
-      buttonPressStartTime = millis();
-      redValue++;
+  else if (millis() - dubblePressReleaseTime > 200) {
+
+
+    // Check if the button is held for more than the hold threshold
+      if (prevRedButtonState == LOW && digitalRead(redInput) == HIGH) { // Button was just pressed
+        redValue++;
+        displayButtonValues();
+      }
+      if (digitalRead(redInput) == LOW ) {
+        if (prevRedButtonState == HIGH) { 
+          buttonPressStartTime = millis();
+        }
+        if (millis() - buttonPressStartTime > holdThreshold) {
+          redValue++;
+          displayButtonValues();
+        }
+    }
+
+    else if (prevGreenButtonState == LOW && digitalRead(greenInput) == HIGH) { // Button was just pressed
+      greenValue++;
       displayButtonValues();
     }
-    if (millis() - buttonPressStartTime > holdThreshold) {
-      redValue++;
+    if (digitalRead(greenInput) == LOW) {
+      if (prevGreenButtonState == HIGH) { 
+        buttonPressStartTime = millis();
+      }
+      if (millis() - buttonPressStartTime > holdThreshold) {
+        greenValue++;
+        displayButtonValues();
+      }
+    } 
+
+    else if (prevBlueButtonState == LOW && digitalRead(blueInput) == HIGH) { // Button was just pressed
+      blueValue++;
       displayButtonValues();
+    }
+    if (digitalRead(blueInput) == LOW) {
+      if (prevBlueButtonState == HIGH) { 
+        buttonPressStartTime = millis();
+      }
+      if (millis() - buttonPressStartTime > holdThreshold) {
+        blueValue++;
+        displayButtonValues();
+      }
     }
   }
-  else if (digitalRead(greenInput) == LOW) {
-    if (prevGreenButtonState == HIGH) { // Button was just pressed
-      buttonPressStartTime = millis();
-      greenValue++;
-      displayButtonValues();
-    }
-    if (millis() - buttonPressStartTime > holdThreshold) {
-      greenValue++;
-      displayButtonValues();
-    }
-  } 
-  else if (digitalRead(blueInput) == LOW) {
-    if (prevBlueButtonState == HIGH) { // Button was just pressed
-      buttonPressStartTime = millis();
-      blueValue++;
-      displayButtonValues();
-    }
-    if (millis() - buttonPressStartTime > holdThreshold) {
-      blueValue++;
-      displayButtonValues();
-    }
-  } 
 
   prevBlueButtonState = digitalRead(blueInput);
   prevRedButtonState = digitalRead(redInput);
   prevGreenButtonState = digitalRead(greenInput);
 
   // Delay for 100 milliseconds to debounce the buttons
-  delay(0);
+  delay(10);
 }
 
 void testAllLEDs() {
   // Loop through all LEDs and set them to different colors
   for (int i = 0; i < NUM_LEDS; i++) {
-    uint32_t color = strip.Color(redValue, greenValue, blueValue, 0);
+    uint32_t color = strip.Color(redValue, greenValue, blueValue, whiteValue);
     strip.setPixelColor(i, color);
   }
   
