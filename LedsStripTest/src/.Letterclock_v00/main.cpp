@@ -36,6 +36,7 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRBW + NEO_KHZ800
 void testAllLEDs();
 void displayButtonValues();
 void displayBrightness();
+void color_brightnessManipulation();
 
 void setup() {
   Serial.begin(9600); // Initialize the serial port
@@ -75,34 +76,21 @@ void loop() {
     // Serial.println(digitalRead(greenInput)); 
     // Serial.println(digitalRead(blueInput));
   }
-  // dispaly the time on the led strip
-  // We want the time to be displayed in binary in the following format
-  // The first 4 leds will display the seconds units in binary and then a gap of 1 led and then the seconds tens in binary on the next 4 leds
-  // The next 4 leds will display the minutes units in binary and then a gap of 1 led and then the minutes tens in binary on the next 4 leds with a gap of 1 led between the seconds and minutes  and then the hours units in binary on the next 4 leds and then a gap of 1 led and then the hours tens in binary on the next 4 leds
-
   // get the current time
   int hours = timeClient.getHours();
   int minutes = timeClient.getMinutes();
-  int seconds = timeClient.getSeconds();
-
-  // convert the time to binary
-  int secondsUnits = seconds % 10;
-  int secondsTens = seconds / 10;
-  int minutesUnits = minutes % 10;
-  int minutesTens = minutes / 10;
-  int hoursUnits = hours % 10;
-  int hoursTens = hours / 10;
 
 
-
-
-  strip.show();
+ 
 
 
   // Test all LEDs with the current RGB values
-  //atestAllLEDs();
-color_brightnessManipulation(redInput, greenInput, blueInput, brightness);
+  testAllLEDs();
+  color_brightnessManipulation();
+}
 
+void color_brightnessManipulation(){
+    
   static bool prevRedButtonState = HIGH;
   static bool prevGreenButtonState = HIGH;
   static bool prevBlueButtonState = HIGH;
@@ -171,11 +159,6 @@ color_brightnessManipulation(redInput, greenInput, blueInput, brightness);
 
   // Delay for 100 milliseconds to debounce the buttons
   delay(10);
-}
-
-void color_brightnessManipulation(int redInput, int greenInput, int blueInput, int brightness){
-    
-
 }
 
 
