@@ -186,7 +186,7 @@ void color_brightnessManipulation(){
 void buildOutputArray(int hours, int minutes) {
   // clear the output array
   for(int i = 0; i < NUM_LEDS; i++) {
-    outputArray[i] = 0;
+      outputArray[i] = 0;
   }
   if (hours > 12)
   {
