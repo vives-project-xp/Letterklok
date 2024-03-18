@@ -17,7 +17,7 @@ NTPClient timeClient(ntpUDP);
 #define PIN 3
 #define NUM_LEDS 600
 
-int outputArray[NUM_LEDS] = {0};
+boolean outputArray[NUM_LEDS] = {0};
 
 
 uint8_t brightness = 255;
@@ -31,6 +31,7 @@ const int redInput = 4;
 const int greenInput = 5;
 const int blueInput = 2;
 bool flag = 0;
+bool colorFlag = 0;
 
 // Previous time in seconds
 int prevTimeSec = 0;
@@ -44,6 +45,7 @@ void displayBrightness();
 void color_brightnessManipulation();
 void buildOutputArray(int hours, int minutes);
 void displayOutputArray();
+void startUpProtocol();
 
 void setup() {
   Serial.begin(9600); // Initialize the serial port
@@ -67,6 +69,9 @@ void setup() {
   pinMode(redInput, INPUT_PULLUP);   // Set the red input pin as input
   pinMode(greenInput, INPUT_PULLUP); // Set the green input pin as input
   pinMode(blueInput, INPUT_PULLUP);  // Set the blue input pin as input
+
+  // show the current time on the clock
+  startUpProtocol();
 }
 
 void loop() {
@@ -86,7 +91,7 @@ void loop() {
   // get the current time
   int hours = timeClient.getHours();
   int minutes = timeClient.getMinutes();
-
+/*
   //every 5 minutes
   if (minutes % 5 == 0)
   {
@@ -94,17 +99,27 @@ void loop() {
     {
       flag = 1;
       strip.clear();
-
+      strip.show();
+      // build the output array
+      buildOutputArray(hours, minutes);
+      // display the output array
+      displayOutputArray();
+      // change color and brightness
     }
-
-    // build the output array
-    buildOutputArray(hours, minutes);
-    // display the output array
-    displayOutputArray();
-    // change color and brightness
   }
   else {
     flag = 0;
+  }*/
+for (int j = 0; j <=55  ; j+=5)
+    {
+      buildOutputArray(1, j);
+      displayOutputArray();
+      delay(2500);
+    } 
+  for(int i = 2; i <= 12; i++) {
+    buildOutputArray(i, 0);
+      displayOutputArray();
+      delay(2500);
   }
   color_brightnessManipulation();
   strip.show();
@@ -127,6 +142,7 @@ void color_brightnessManipulation(){
     strip.setBrightness(brightness);
     displayBrightness();
     dubblePressReleaseTime = millis();
+    colorFlag = 1;
   }
 
   else if (millis() - dubblePressReleaseTime > 200) {
@@ -134,6 +150,7 @@ void color_brightnessManipulation(){
       if (prevRedButtonState == LOW && digitalRead(redInput) == HIGH) { // Button was just pressed
         redValue++;
         displayButtonValues();
+        colorFlag = 1;
       }
       if (digitalRead(redInput) == LOW ) {
         if (prevRedButtonState == HIGH) { 
@@ -142,12 +159,14 @@ void color_brightnessManipulation(){
         if (millis() - buttonPressStartTime > holdThreshold) {
           redValue++;
           displayButtonValues();
+          colorFlag = 1;
         }
     }
 
     else if (prevGreenButtonState == LOW && digitalRead(greenInput) == HIGH) { // Button was just pressed
       greenValue++;
       displayButtonValues();
+      colorFlag = 1;
     }
     if (digitalRead(greenInput) == LOW) {
       if (prevGreenButtonState == HIGH) { 
@@ -156,12 +175,14 @@ void color_brightnessManipulation(){
       if (millis() - buttonPressStartTime > holdThreshold) {
         greenValue++;
         displayButtonValues();
+        colorFlag = 1;
       }
     } 
 
     else if (prevBlueButtonState == LOW && digitalRead(blueInput) == HIGH) { // Button was just pressed
       blueValue++;
       displayButtonValues();
+      colorFlag = 1;
     }
     if (digitalRead(blueInput) == LOW) {
       if (prevBlueButtonState == HIGH) { 
@@ -170,6 +191,7 @@ void color_brightnessManipulation(){
       if (millis() - buttonPressStartTime > holdThreshold) {
         blueValue++;
         displayButtonValues();
+        colorFlag = 1;
       }
     }
   }
@@ -180,22 +202,35 @@ void color_brightnessManipulation(){
 
   // Delay for 100 milliseconds to debounce the buttons
   delay(10);
+
+  if (colorFlag == 1)
+  {
+    colorFlag = 0;
+    displayOutputArray();
+    strip.show();
+  }
 }
 
 //function for building the output array
 void buildOutputArray(int hours, int minutes) {
   // clear the output array
   for(int i = 0; i < NUM_LEDS; i++) {
-      outputArray[i] = 0;
+    outputArray[i] = 0;
+  }
+
+  if (minutes >= 20)
+  {
+    hours++;
   }
   if (hours > 12)
   {
     hours = hours - 12;
   } 
-  if (minutes >= 20)
+  if (hours == 0)
   {
-    hours++;
+    hours = 12;
   }
+  
   // convert hours to output array
   if (hours == 1) for(int i : one) outputArray[i] = 1;
   else if (hours == 2) for(int i : two) outputArray[i] = 1;
@@ -234,14 +269,14 @@ void displayOutputArray()
     {
       strip.setPixelColor(i, strip.Color(redValue, greenValue, blueValue, whiteValue));
     }
-    else
+    else if (outputArray[i] == 0)
     {
       strip.setPixelColor(i, strip.Color(0, 0, 0, 0));
     }
   }
-
-  strip.show();
-
+strip.show();
+  
+/*
   for(int i = 0; i < NUM_LEDS; i++)
   {
     if ((i-2) % 44 == 0)
@@ -255,6 +290,13 @@ void displayOutputArray()
     Serial.print(outputArray[i]);
   }
   Serial.println("\n ");
+
+   for(int i = 0; i < NUM_LEDS; i++)
+  {
+    Serial.println(strip.getPixelColor(i));
+  }
+  Serial.println("\n ");
+  */
 }
 
 
@@ -280,4 +322,16 @@ void displayButtonValues() {
 void displayBrightness() {
   Serial.print("Brightness: ");
   Serial.println(brightness);
+}
+
+
+void startUpProtocol() {
+  timeClient.update();
+  int hours = timeClient.getHours();
+  int minutes = timeClient.getMinutes();
+
+  minutes = minutes - (minutes % 5);
+  buildOutputArray(hours, minutes);
+  displayOutputArray();
+  Serial.println("Start up protocol done");
 }
