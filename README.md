@@ -2,13 +2,13 @@
 
 ## SPRINTS
 - Sprint 1: 5/02 - 03/03 ✅
-    - brainstormen
-    - componenten toevoegen aan bestellijst
-    - architectuur bestand maken
-    - kleine testen (keuze componenten verklaren)
+    - brainstormen    ✔
+    - componenten toevoegen aan bestellijst    ✔
+    - architectuur bestand maken    ✔
+    - kleine testen (keuze componenten verklaren)    ✔
 - Sprint 2: 04/03 - 24/03
-    - checklist testen prototypes
-    - bouwen prototype
+    - checklist testen prototypes    ✔
+    - bouwen prototype    
     - architectuur bestand updaten
 - Sprint 3: 25/03 - 05/05
     - werken naar finaal product
