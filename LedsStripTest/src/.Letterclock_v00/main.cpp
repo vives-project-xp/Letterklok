@@ -91,7 +91,7 @@ void loop() {
   // get the current time
   int hours = timeClient.getHours();
   int minutes = timeClient.getMinutes();
-/*
+
   //every 5 minutes
   if (minutes % 5 == 0)
   {
@@ -109,7 +109,8 @@ void loop() {
   }
   else {
     flag = 0;
-  }*/
+  }
+  /*
 for (int j = 0; j <=55  ; j+=5)
     {
       buildOutputArray(1, j);
@@ -120,7 +121,7 @@ for (int j = 0; j <=55  ; j+=5)
     buildOutputArray(i, 0);
       displayOutputArray();
       delay(2500);
-  }
+  }*/
   color_brightnessManipulation();
   strip.show();
   // testAllLEDs();
@@ -193,6 +194,19 @@ void color_brightnessManipulation(){
         displayButtonValues();
         colorFlag = 1;
       }
+    }
+  }
+  
+
+  if(redValue >= 128 && greenValue >= 128 && blueValue >= 128) 
+  {
+    if(abs((redValue - blueValue)) <= 5 && abs((redValue - greenValue)) <= 5 && abs((greenValue - blueValue)) <= 5)
+    {
+      whiteValue = redValue;
+      redValue = 0;
+      greenValue = 0;
+      blueValue = 0;
+      colorFlag = 1;
     }
   }
 
