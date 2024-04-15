@@ -58,11 +58,9 @@ To build and customize the Character Clock:
 
 ## Architecture files 
 
-[Link naar Architectuur](/Architectuur/Architecture.md)
-
 ![Architecture file](/Architectuur/Foto's/Input-Functie-Output.png)
-![Architecture file](/Architectuur/Foto's/Requirements.png)
-![Architecture file](/Architectuur/Foto's/Architecture.png)
+
+[Meer INFO](/Architectuur/Architecture.md)
 
 ## Components
 
@@ -72,7 +70,7 @@ To build and customize the Character Clock:
 -    Spanningsomvormer 5V -> 3.3V
 -    Ledstrip: 10 meter
 
-[Meer](/Componenten/components.md)
+[Meer INFO](/Componenten/components.md)
 
 ## Contributors
 
