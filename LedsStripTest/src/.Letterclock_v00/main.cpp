@@ -32,11 +32,12 @@ const int greenInput = 5;
 const int blueInput = 2;
 bool flag = 0;
 bool colorFlag = 0;
+bool whiteFlag = 0; 
 
 // Previous time in seconds
 int prevTimeSec = 0;
 
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRBW + NEO_KHZ800);
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRBW + NEO_KHZ400);
 
 // Function prototypes
 void testAllLEDs();
@@ -200,15 +201,21 @@ void color_brightnessManipulation(){
 
   if(redValue >= 128 && greenValue >= 128 && blueValue >= 128) 
   {
-    if(abs((redValue - blueValue)) <= 5 && abs((redValue - greenValue)) <= 5 && abs((greenValue - blueValue)) <= 5)
+    if(abs((redValue - blueValue)) <= 15 && abs((redValue - greenValue)) <= 15 && abs((greenValue - blueValue)) <= 15)
     {
       whiteValue = redValue;
-      redValue = 0;
-      greenValue = 0;
-      blueValue = 0;
-      colorFlag = 1;
+      whiteFlag = 1;
+    }
+    else 
+    {
+      whiteFlag = 0;
     }
   }
+  else if (whiteFlag == 1)
+  {
+    whiteFlag = 0;
+  }
+ 
 
   prevBlueButtonState = digitalRead(blueInput);
   prevRedButtonState = digitalRead(redInput);
@@ -281,7 +288,14 @@ void displayOutputArray()
   {
     if (outputArray[i] == 1)
     {
-      strip.setPixelColor(i, strip.Color(redValue, greenValue, blueValue, whiteValue));
+      if (whiteFlag == 1)
+      {
+        strip.setPixelColor(i, strip.Color(0, 0, 0, whiteValue));
+      }
+      else
+      {
+        strip.setPixelColor(i, strip.Color(redValue, greenValue, blueValue, whiteValue));
+      }
     }
     else if (outputArray[i] == 0)
     {

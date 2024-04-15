@@ -127,7 +127,7 @@ testAllLEDs();
 
 void testAllLEDs() {
   // Loop through all LEDs and set them to different colors
-  for (int i = 0; i < NUM_LEDS; i++) {
+  for (int i = 500; i < NUM_LEDS; i++) {
     uint32_t color = strip.Color(redValue, greenValue, blueValue, whiteValue);
     strip.setPixelColor(i, color);
   }
