@@ -31,6 +31,8 @@ Deze level shifter werkt bidirectioneel en kan omzettingen doen tussen:<br>
 *3.3V<br>
 *5V<br>
 
+De maximale oporationele frequentie is "1MHz". Dit is genoeg want onze ledstrip word aangestuurd met 800kHz.
+
 
 
 # 4: Spanningsomvormer
