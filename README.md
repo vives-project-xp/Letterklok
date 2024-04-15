@@ -64,7 +64,15 @@ To build and customize the Character Clock:
 ![Architecture file](/Architectuur/Foto's/Requirements.png)
 ![Architecture file](/Architectuur/Foto's/Architecture.png)
 
+## Components
 
+-    Voeding: 5V 25W
+-    MicroController: ESP32
+-    LEVEL-Shifter: 3.3V <--> 5V
+-    Spanningsomvormer 5V -> 3.3V
+-    Ledstrip: 10 meter
+
+[Meer](/Componenten/components.md)
 
 ## Contributors
 
