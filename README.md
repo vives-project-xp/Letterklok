@@ -2,13 +2,13 @@
 
 ## SPRINTS
 - Sprint 1: 5/02 - 03/03 ✅
-    - brainstormen
-    - componenten toevoegen aan bestellijst
-    - architectuur bestand maken
-    - kleine testen (keuze componenten verklaren)
+    - brainstormen    ✔
+    - componenten toevoegen aan bestellijst    ✔
+    - architectuur bestand maken    ✔
+    - kleine testen (keuze componenten verklaren)    ✔
 - Sprint 2: 04/03 - 24/03
-    - checklist testen prototypes
-    - bouwen prototype
+    - checklist testen prototypes    ✔
+    - bouwen prototype    
     - architectuur bestand updaten
 - Sprint 3: 25/03 - 05/05
     - werken naar finaal product
@@ -58,13 +58,19 @@ To build and customize the Character Clock:
 
 ## Architecture files 
 
-[Link naar Architectuur](/Architectuur/Architecture.md)
-
 ![Architecture file](/Architectuur/Foto's/Input-Functie-Output.png)
-![Architecture file](/Architectuur/Foto's/Requirements.png)
-![Architecture file](/Architectuur/Foto's/Architecture.png)
 
+[Meer INFO](/Architectuur/Architecture.md)
 
+## Components
+
+-    Voeding: 5V 25W
+-    MicroController: ESP32
+-    LEVEL-Shifter: 3.3V <--> 5V
+-    Spanningsomvormer 5V -> 3.3V
+-    Ledstrip: 10 meter
+
+[Meer INFO](/Componenten/components.md)
 
 ## Contributors
 
