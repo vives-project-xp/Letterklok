@@ -45,7 +45,7 @@ This project aims to create a customizable character clock using readily availab
 ## Project Components
 - **Hardware**: Includes a microcontroller, 2x 5m LED Strips, 2x power supply, and any additional components required for the specific design.
 - **Software**: The firmware for the microcontroller, written in the programming language C++. This software controls the display, handles timekeeping functions, and manages user settings.
-- **Enclosure**: Design files for the physical enclosure housing the clock components, which can be 3D-printed, lazercut or fabricated using other methods.
+- **Enclosure**: Design files for the physical enclosure housing the clock components, which can be 3D-printed, lasercut or fabricated using other methods.
 - **Electrical Architecture**: Schematics and PCB layouts detailing the electrical connections and components used in the project.
 
 ## Getting Started
