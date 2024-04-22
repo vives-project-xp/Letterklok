@@ -6,10 +6,10 @@
     - componenten toevoegen aan bestellijst    ✔
     - architectuur bestand maken    ✔
     - kleine testen (keuze componenten verklaren)    ✔
-- Sprint 2: 04/03 - 24/03
+- Sprint 2: 04/03 - 24/03 ✅
     - checklist testen prototypes    ✔
-    - bouwen prototype    
-    - architectuur bestand updaten
+    - bouwen prototype ✔   
+    - architectuur bestand updaten ✔-
 - Sprint 3: 25/03 - 05/05
     - werken naar finaal product
     - elk onderdeel testen op betrouwbaarheid
