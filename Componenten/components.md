@@ -60,3 +60,7 @@ The LED strips are used for illumination and are mounted on the panel. Two 5-met
 - LED Chip: WS2813
 - LEDs per Meter: 30
 - LENGTHE: 5 Meter
+
+
+
+[MAIN README](../README.md)
