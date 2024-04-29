@@ -1,63 +1,61 @@
-# Componenten
+### 1. Voeding
 
-# 1: Voeding
-<img src = "voeding.jpg" height = 300></img>
+**Description:**
+<img src="voeding.jpg" height="300">
 
-<p>Ingangsspanning: 90 - 264V AC<br>
-Uitgangsspanning: 5V DC<br>
-Uitgangsstroom max: 5A<br>
-Vermogen: 25W<br>
+The power supply unit provides power to the LEDs and the controller. Two units are used in parallel to ensure sufficient power supply.
 
-We plaatsen twee exemplaren in parallel om onze leds en controller te voeden.<br>
-We houden in gedacht dat onze leds nooit allemaal op hetzelfde moment zullen oplichten, dus dit is meer dan voldoende. </p>
+**Specs:**
+- Input Voltage: 90 - 264V AC
+- Output Voltage: 5V DC
+- Maximum Output Current: 5A
+- Power: 25W
 
+### 2. Controller
 
-# 2: Controller
-<img src = "Controller.png" height = 300></img>
+**Description:**
+<img src="Controller.png" height="300">
 
-<p>Om onze leds aan te sturen, maken we gebruik van de ESP32-C3, een controller waarmee we reeds vertrouwd zijn. 
+The ESP32-C3 controller is used to control the LEDs. It operates at 3.3V and has a USB interface and 22 GPIO pins.
 
-Dit toestel werkt op een spanning van 3.3V, heeft een USB-interface en 22 GPIO-pinnen wat meer dan genoeg is voor dit project.
+**Specs:**
+- Operating Voltage: 3.3V
+- Interfaces: USB
+- GPIO Pins: 22
 
+### 3. Level Shifter
 
-# 3: Level Shifter
-<img src = "level_shifter.jpg" height = 300></img>
+**Description:**
+<img src="level_shifter.jpg" height="300">
 
-Omdat de spanning van onze controller (3.3V) verschilt met de spanning waarop onze LEDs werken (5V), hebben we level shifters nodig om het digitaal signaal van de controller juist om te zetten.
+The level shifter is used to convert digital signals from the 3.3V controller to the 5V required by the LEDs. It is bidirectional and supports various voltage levels.
 
-Deze level shifter werkt bidirectioneel en kan omzettingen doen tussen:<br>
-*1.8V<br>
-*2.8V<br>
-*3.3V<br>
-*5V<br>
+**Specs:**
+- Supported Voltage Levels: 1.8V, 2.8V, 3.3V, 5V
+- Maximum Operational Frequency: 1MHz
 
-De maximale oporationele frequentie is "1MHz". Dit is genoeg want onze ledstrip word aangestuurd met 800kHz.
+### 4. Spanningsomvormer (Voltage Regulator)
 
+**Description:**
+<img src="voltage_regulator.webp" height="300">
 
+The voltage regulator converts the 5V input voltage to a stable 3.3V output voltage required by the microcontroller.
 
-# 4: Spanningsomvormer
-<img src = "voltage_regulator.webp" height = 300></img>
+**Specs:**
+- Input Voltage Range: DC 4.5 - 7V
+- Output Voltage: 3.3V
+- Maximum Output Current: 800mA
 
-Opdat we onze microcontroller veilig kunnen voeden, moeten we eerst de 5V ingangsspanning veilig omzetten naar een 3.3V spanning waarop de ESP werkt. Deze component regelt de spanning tot een vaste 3.3Vout en 800mA.
+### 5. Ledstrip
 
-Input: DC 4.5 - 7V <br>
-Output: 3.3V, 800mA 
-
-
-
-# 5: Ledstrip
+**Description:**
 <img src="ledstrip.jpg" alt="ledstrip gekozen voor ons project" height="300">
 
-De box waarmee we werken zal een afmeting hebben van 850x850mm, dus om zeker te zijn
-dat we genoeg LEDS hebben, inclusief voor testen, kiezen we voor 2x 5 meter ledstrips.
+The LED strips are used for illumination and are mounted on the panel. Two 5-meter strips are chosen for the project.
 
-Deze ledstrips zijn voorzien van een tape op de achterkant, waardoor we ze makkelijk kunnen bevestigen
-aan de plaat. Ook zijn ze knipbaar op elke LED, wat ons veel flexibiliteit biedt. Per meter zijn er 30 LEDS, waardoor we in totaal beschikken over 300 LEDS.
-
-
-Ingangsspanning: 5V <br>
-Max. vermogen per LED: 60mA <br>
-Max. vermogen per meter: 1.8A / 9W <br>
-WS2813 chip<br>
-30 LEDs per meter<br>
-
+**Specs:**
+- Input Voltage: 5V
+- Maximum Power per LED: 60mA
+- Maximum Power per Meter: 1.8A / 9W
+- LED Chip: WS2813
+- LEDs per Meter: 30
