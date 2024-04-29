@@ -11,3 +11,5 @@
 
 <h2>Architectuur</h2>
 <img src = "Foto's/Architecture.png">
+
+[MAIN README](../README.md)
