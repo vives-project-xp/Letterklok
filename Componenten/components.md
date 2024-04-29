@@ -1,4 +1,4 @@
-### 1. Voeding
+### 1. Voeding (2x)
 <img src="voeding.jpg" height="300">
 
 **Description:**
@@ -49,7 +49,7 @@ The voltage regulator converts the 5V input voltage to a stable 3.3V output volt
 ### 5. Ledstrip
 <img src="ledstrip.jpg" alt="ledstrip gekozen voor ons project" height="300">
 
-**Description:**
+**Description:** (2x)
 
 The LED strips are used for illumination and are mounted on the panel. Two 5-meter strips are chosen for the project.
 
@@ -59,3 +59,4 @@ The LED strips are used for illumination and are mounted on the panel. Two 5-met
 - Maximum Power per Meter: 1.8A / 9W
 - LED Chip: WS2813
 - LEDs per Meter: 30
+- LENGTHE: 5 Meter
