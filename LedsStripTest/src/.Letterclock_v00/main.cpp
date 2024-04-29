@@ -61,7 +61,7 @@ void setup() {
 
   // Initialize NTP client
   timeClient.begin();
-  timeClient.setTimeOffset(3600); // Timezone offset for Brussels (UTC+1)
+  timeClient.setTimeOffset(7200); // Timezone offset for Brussels (UTC+1)
 
   strip.begin(); // Initialize the NeoPixel strip
   strip.show(); // Update all LEDs with the new colors
@@ -92,7 +92,7 @@ void loop() {
   // get the current time
   int hours = timeClient.getHours();
   int minutes = timeClient.getMinutes();
-
+ 
   //every 5 minutes
   if (minutes % 5 == 0)
   {
@@ -111,18 +111,18 @@ void loop() {
   else {
     flag = 0;
   }
-  /*
-for (int j = 0; j <=55  ; j+=5)
-    {
-      buildOutputArray(1, j);
-      displayOutputArray();
-      delay(2500);
-    } 
-  for(int i = 2; i <= 12; i++) {
-    buildOutputArray(i, 0);
-      displayOutputArray();
-      delay(2500);
-  }*/
+  
+// for (int j = 0; j <=55  ; j+=5)
+//     {
+//       buildOutputArray(1, j);
+//       displayOutputArray();""
+//       delay(2500);
+//     } 
+// for(int i = 2; i <= 12; i++) {
+//   buildOutputArray(i, 0);
+//     displayOutputArray();
+//     delay(2500);
+// }
   color_brightnessManipulation();
   strip.show();
   // testAllLEDs();
