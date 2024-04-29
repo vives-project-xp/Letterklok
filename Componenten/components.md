@@ -1,13 +1,17 @@
 ### 1. Voeding
-<**Description:**
-
-The power supply unit provides power to the LEDs and the controller. Two units are used in parallel to ensure sufficient power supply.
-
-**Specs:**
-- Input Voltage: 90 - 264V AC
-- Output Voltage: 5V DC
-- Maximum Output Current: 5A
-- Power: 25W><img src="voeding.jpg" height="300">
+<div style="display: flex; align-items: center;">
+    <img src="voeding.jpg" height="300" style="flex: 1; margin-right: 20px;">
+    <div style="flex: 1;">
+        <h3>Voeding</h3>
+        <p><strong>Description:</strong><br>
+        The power supply unit provides power to the LEDs and the controller. Two units are used in parallel to ensure sufficient power supply.</p>
+        <p><strong>Specs:</strong><br>
+        - Input Voltage: 90 - 264V AC<br>
+        - Output Voltage: 5V DC<br>
+        - Maximum Output Current: 5A<br>
+        - Power: 25W</p>
+    </div>
+</div>
 
 
 
