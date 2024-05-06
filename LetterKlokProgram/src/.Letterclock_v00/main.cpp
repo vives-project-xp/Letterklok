@@ -4,6 +4,7 @@
 #include <NTPClient.h>
 #include <WiFiUdp.h>
 #include <Arrays.h>
+#include <esp32-hal-timer.h>
 
 // WiFi credentials
 const char* ssid = "devbit";
@@ -32,12 +33,22 @@ const int greenInput = 5;
 const int blueInput = 2;
 bool flag = 0;
 bool colorFlag = 0;
-bool whiteFlag = 0; 
 
 // Previous time in seconds
 int prevTimeSec = 0;
 
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRBW + NEO_KHZ400);
+//time variables
+int hours = 0;
+int minutes = 0;
+int seconds = 0;
+
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRBW + NEO_KHZ800);
+
+// Define the timer number (0-3 for ESP32)
+#define TIMER_NUMBER 0
+
+// Define the timer interval in microseconds
+#define TIMER_INTERVAL_US 1000000 // 1 second
 
 // Function prototypes
 void testAllLEDs();
@@ -47,6 +58,8 @@ void color_brightnessManipulation();
 void buildOutputArray(int hours, int minutes);
 void displayOutputArray();
 void startUpProtocol();
+void timerSetup();
+void IRAM_ATTR onTimer();
 
 void setup() {
   Serial.begin(9600); // Initialize the serial port
@@ -73,31 +86,16 @@ void setup() {
 
   // show the current time on the clock
   startUpProtocol();
+  timerSetup();
 }
 
 void loop() {
-  // Update NTP client and get current time
-  timeClient.update();
-  // only update the time if the time is changed
-
-  if (timeClient.getSeconds() != prevTimeSec)
-  {
-    prevTimeSec = timeClient.getSeconds();
-    Serial.print("Current time: ");
-    Serial.println(timeClient.getFormattedTime());
-    // Serial.println(digitalRead(redInput));
-    // Serial.println(digitalRead(greenInput)); 
-    // Serial.println(digitalRead(blueInput));
-  }
-  // get the current time
-  int hours = timeClient.getHours();
-  int minutes = timeClient.getMinutes();
- 
   //every 5 minutes
   if (minutes % 5 == 0)
   {
     if (flag == 0)
     {
+
       flag = 1;
       strip.clear();
       strip.show();
@@ -111,18 +109,18 @@ void loop() {
   else {
     flag = 0;
   }
-  
-// for (int j = 0; j <=55  ; j+=5)
-//     {
-//       buildOutputArray(1, j);
-//       displayOutputArray();""
-//       delay(2500);
-//     } 
-// for(int i = 2; i <= 12; i++) {
-//   buildOutputArray(i, 0);
-//     displayOutputArray();
-//     delay(2500);
-// }
+  /*
+for (int j = 0; j <=55  ; j+=5)
+    {
+      buildOutputArray(1, j);
+      displayOutputArray();
+      delay(2500);
+    } 
+  for(int i = 2; i <= 12; i++) {
+    buildOutputArray(i, 0);
+      displayOutputArray();
+      delay(2500);
+  }*/
   color_brightnessManipulation();
   strip.show();
   // testAllLEDs();
@@ -201,21 +199,15 @@ void color_brightnessManipulation(){
 
   if(redValue >= 128 && greenValue >= 128 && blueValue >= 128) 
   {
-    if(abs((redValue - blueValue)) <= 15 && abs((redValue - greenValue)) <= 15 && abs((greenValue - blueValue)) <= 15)
+    if(abs((redValue - blueValue)) <= 5 && abs((redValue - greenValue)) <= 5 && abs((greenValue - blueValue)) <= 5)
     {
       whiteValue = redValue;
-      whiteFlag = 1;
-    }
-    else 
-    {
-      whiteFlag = 0;
+      redValue = 0;
+      greenValue = 0;
+      blueValue = 0;
+      colorFlag = 1;
     }
   }
-  else if (whiteFlag == 1)
-  {
-    whiteFlag = 0;
-  }
- 
 
   prevBlueButtonState = digitalRead(blueInput);
   prevRedButtonState = digitalRead(redInput);
@@ -288,14 +280,7 @@ void displayOutputArray()
   {
     if (outputArray[i] == 1)
     {
-      if (whiteFlag == 1)
-      {
-        strip.setPixelColor(i, strip.Color(0, 0, 0, whiteValue));
-      }
-      else
-      {
-        strip.setPixelColor(i, strip.Color(redValue, greenValue, blueValue, whiteValue));
-      }
+      strip.setPixelColor(i, strip.Color(redValue, greenValue, blueValue, whiteValue));
     }
     else if (outputArray[i] == 0)
     {
@@ -362,4 +347,46 @@ void startUpProtocol() {
   buildOutputArray(hours, minutes);
   displayOutputArray();
   Serial.println("Start up protocol done");
+}
+
+void timerSetup() {
+  // Initialize Timer 0 with a divider of 80 and count up
+  hw_timer_t *timer = timerBegin(TIMER_NUMBER, 80, true);
+  
+  // Set an ISR (Interrupt Service Routine) to be called when the timer fires
+  timerAttachInterrupt(timer, &onTimer, true);
+  
+  // Set the timer's alarm value (when it should trigger)
+  timerAlarmWrite(timer, TIMER_INTERVAL_US, true); // 1 second (1,000,000 microseconds)
+
+  //set the start time 
+  timeClient.update();
+  hours = timeClient.getHours();
+  minutes = timeClient.getMinutes();
+  seconds = timeClient.getSeconds();
+
+  // Start the timer
+  timerAlarmEnable(timer);
+}
+
+void IRAM_ATTR onTimer()
+{
+  seconds++;
+  if (seconds >= 60)
+  {
+    seconds = 0;
+    minutes++;
+  }
+  if (minutes >= 60)
+  {
+    minutes = 0;
+    hours++;
+  }
+  if (hours >= 24)
+  {
+    hours = 0;
+  }
+  //print formatted time
+  Serial.print("Current Time: ");
+  Serial.printf("%02d:%02d:%02d\n", hours, minutes, seconds);
 }
