@@ -16,7 +16,7 @@
     - checklist maken voor laaste sprint (debuggen en fine tuning) ✔
 - Sprint 4: 06/05 - 19/05
     - checklist afgaan
-    - testresultaten noteren en optimaliseren
+    - testresultaten noteren en optimaliseren ✔
 - Presentatie: 22/05
 
 
