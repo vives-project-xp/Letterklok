@@ -10,10 +10,10 @@
     - checklist testen prototypes    ✔
     - bouwen prototype ✔   
     - architectuur bestand updaten ✔-
-- Sprint 3: 25/03 - 05/05
-    - werken naar finaal product
-    - elk onderdeel testen op betrouwbaarheid
-    - checklist maken voor laaste sprint (debuggen en fine tuning)
+- Sprint 3: 25/03 - 05/05 ✅
+    - werken naar finaal product ✔
+    - elk onderdeel testen op betrouwbaarheid ✔
+    - checklist maken voor laaste sprint (debuggen en fine tuning) ✔
 - Sprint 4: 06/05 - 19/05
     - checklist afgaan
     - testresultaten noteren en optimaliseren
