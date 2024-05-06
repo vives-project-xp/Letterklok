@@ -14,7 +14,7 @@
     - werken naar finaal product
     - elk onderdeel testen op betrouwbaarheid
     - checklist maken voor laaste sprint (debuggen en fine tuning)
-- Sprint 4: 06/06 - 19/05
+- Sprint 4: 06/05 - 19/05
     - checklist afgaan
     - testresultaten noteren en optimaliseren
 - Presentatie: 22/05
