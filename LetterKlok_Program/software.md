@@ -18,3 +18,7 @@ We kaarten de belangrijkste punten uit de code even aan:
 - Functionaliteit van de buttons worden daarna beschreven door middel van een reeks if-statements. Hier worden de kleurwaarden ook aangepast, naargelang welke knop actief wordt.
 - Een test programma is inbegrepen, waarbij alle leds tegelijk aangestuurd worden.
 
+
+
+[MAIN README](../README.md)
+
