@@ -7,7 +7,7 @@
 <h2>Requirements</h2>
 <p>De input and output requirements</p>
 <p>De magneten zijn wel vervangen door velcro in dit voorbeeld</p>
-<img src = "Foto's/Requirements.png">sui nikka
+<img src = "Foto's/Requirements.png">
 
 <h2>Directe/indirecte functies</h2>
 
