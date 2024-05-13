@@ -23,7 +23,7 @@
 ## Description
 The Character Clock is a unique timekeeping device that presents the current time using alphanumeric characters or symbols instead of traditional numerical or analog representations. It offers a creative and eye-catching way to display the time, adding both functionality and aesthetic appeal to any space.
 
-<img src="/Foto's/LetterClock.png" alt="Character Clock" height="250" ><img src="/Foto's/LTRCLCK.png" alt="Character Clock" height="250"><img src="/Foto's/IMG_4719.jpg" alt="Character Clock" height="250">
+<img src="LetterKlock_FacePlate/Foto's/LetterClock.png" alt="Character Clock" height="250" ><img src="/Foto's/LTRCLCK.png" alt="Character Clock" height="250"><img src="/Foto's/IMG_4719.jpg" alt="Character Clock" height="250">
 
 
 
