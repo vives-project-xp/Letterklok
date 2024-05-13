@@ -72,6 +72,12 @@ To build and customize the Character Clock:
 
 [Meer INFO](/Componenten/components.md)
 
+
+## Software
+
+
+[Meer INFO] (/LetterKlokProgram/software.md)
+
 ## Contributors
 
 ### Students:
