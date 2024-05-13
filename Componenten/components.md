@@ -1,5 +1,5 @@
 ### 1. Voeding (2x)
-<img src="Componenten/foto's/voeding.jpg" height="300">
+<img src="/Componenten/foto's/voeding.jpg" height="300">
 
 **Description:**
 
